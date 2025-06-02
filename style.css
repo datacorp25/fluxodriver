@@ -1,4 +1,7 @@
 
-.input {
-  @apply mt-1 p-2 w-full border rounded focus:ring-blue-500 focus:border-blue-500;
+body {
+  background-color: #f3f4f6;
+}
+input, button {
+  outline: none;
 }

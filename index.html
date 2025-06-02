@@ -1,44 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FLUXODRIVER</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-  <div id="mainPage" class="container mx-auto max-w-2xl p-4">
-    <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">FLUXODRIVER</h1>
-    <div class="bg-white p-6 rounded shadow">
-      <h2 class="text-lg font-semibold mb-4 text-gray-700">Adicionar Registro</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input type="number" id="km" class="input" placeholder="KM Rodados" />
-        <input type="number" id="gross" class="input" placeholder="Ganhos Brutos (R$)" />
-        <input type="number" id="tips" class="input" placeholder="Gorjetas (R$)" />
-        <input type="number" id="fuel" class="input" placeholder="Gasolina (R$)" />
-        <input type="number" id="food" class="input" placeholder="Comida (R$)" />
-        <input type="number" id="other" class="input" placeholder="Outros Gastos (R$)" />
-      </div>
-      <button onclick="addRecord()" class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Adicionar</button>
+  <div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded mt-10">
+    <div class="flex items-center justify-center mb-6">
+      <img src="logo.svg" alt="Logo" class="w-12 h-12 mr-2">
+      <h1 class="text-2xl font-bold text-gray-800">FLUXODRIVER</h1>
     </div>
-
-    <div class="bg-white mt-6 p-6 rounded shadow">
-      <h2 class="text-lg font-semibold mb-4 text-gray-700">Registros</h2>
-      <table class="w-full text-left">
-        <thead>
-          <tr class="bg-gray-100">
-            <th class="p-2 text-sm">Data</th>
-            <th class="p-2 text-sm">KM</th>
-            <th class="p-2 text-sm">Ganhos</th>
-            <th class="p-2 text-sm">Gastos</th>
-            <th class="p-2 text-sm">Lucro</th>
-          </tr>
-        </thead>
-        <tbody id="recordsTable"></tbody>
-      </table>
-    </div>
+    <div id="app"></div>
   </div>
   <script src="script.js"></script>
 </body>

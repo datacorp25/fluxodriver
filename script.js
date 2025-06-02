@@ -1,39 +1,25 @@
 
-let records = JSON.parse(localStorage.getItem("records")) || [];
+document.getElementById("app").innerHTML = `
+  <div class='grid gap-4'>
+    <input type='number' id='km' placeholder='KM Rodados' class='input'>
+    <input type='number' id='ganho' placeholder='Ganhos Brutos (R$)' class='input'>
+    <input type='number' id='gastos' placeholder='Gastos Totais (R$)' class='input'>
+    <button onclick='adicionar()' class='btn'>Adicionar</button>
+    <div id='resultado' class='mt-4 text-gray-700'></div>
+    <a href='https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c938084970fb5df019732118be90d5b' target='_blank' class='btn bg-green-600 hover:bg-green-700'>Liberar Acesso Vitalício</a>
+  </div>
+`;
 
-function addRecord() {
-  const date = new Date().toISOString().split("T")[0];
+function adicionar() {
   const km = parseFloat(document.getElementById("km").value) || 0;
-  const gross = parseFloat(document.getElementById("gross").value) || 0;
-  const tips = parseFloat(document.getElementById("tips").value) || 0;
-  const fuel = parseFloat(document.getElementById("fuel").value) || 0;
-  const food = parseFloat(document.getElementById("food").value) || 0;
-  const other = parseFloat(document.getElementById("other").value) || 0;
+  const ganho = parseFloat(document.getElementById("ganho").value) || 0;
+  const gastos = parseFloat(document.getElementById("gastos").value) || 0;
+  const lucro = ganho - gastos;
 
-  const income = gross + tips;
-  const expenses = fuel + food + other;
-  const net = income - expenses;
-
-  const record = { date, km, income, expenses, net };
-  records.push(record);
-  localStorage.setItem("records", JSON.stringify(records));
-  updateTable();
+  document.getElementById("resultado").innerHTML = \`
+    <p><strong>KM:</strong> \${km}</p>
+    <p><strong>Ganhos:</strong> R$ \${ganho.toFixed(2)}</p>
+    <p><strong>Gastos:</strong> R$ \${gastos.toFixed(2)}</p>
+    <p><strong>Lucro:</strong> R$ \${lucro.toFixed(2)}</p>
+  \`;
 }
-
-function updateTable() {
-  const table = document.getElementById("recordsTable");
-  table.innerHTML = "";
-  records.forEach(r => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td class="p-2 text-sm">${r.date}</td>
-      <td class="p-2 text-sm">${r.km.toFixed(1)} km</td>
-      <td class="p-2 text-sm">R$ ${r.income.toFixed(2)}</td>
-      <td class="p-2 text-sm">R$ ${r.expenses.toFixed(2)}</td>
-      <td class="p-2 text-sm">R$ ${r.net.toFixed(2)}</td>
-    `;
-    table.appendChild(row);
-  });
-}
-
-window.onload = updateTable;
