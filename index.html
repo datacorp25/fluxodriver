@@ -1,20 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FLUXODRIVER</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
-  <div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded mt-10">
-    <div class="flex items-center justify-center mb-6">
-      <img src="logo.svg" alt="Logo" class="w-12 h-12 mr-2">
-      <h1 class="text-2xl font-bold text-gray-800">FLUXODRIVER</h1>
-    </div>
-    <div id="app"></div>
-  </div>
+  <div id="loginPage" class="flex justify-center items-center h-screen"></div>
+  <div id="registerPage" class="hidden flex justify-center items-center h-screen"></div>
+  <div id="mainPage" class="hidden p-4 max-w-2xl mx-auto"></div>
+  <div id="blockedPage" class="hidden flex justify-center items-center h-screen"></div>
   <script src="script.js"></script>
 </body>
 </html>
